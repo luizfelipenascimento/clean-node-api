@@ -18,6 +18,6 @@ export const MongoHelper = {
 
   map (document: any): any {
     const { _id, ...documentWithoutId } = document
-    return Object.assign(documentWithoutId, { id: String(_id) })
+    return Object.assign({}, documentWithoutId, { id: String(_id) })
   }
 }
