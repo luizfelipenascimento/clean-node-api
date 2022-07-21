@@ -3,8 +3,10 @@ import { Collection, MongoClient } from 'mongodb'
 export const MongoHelper = {
 
   client: MongoClient,
+  uri: String,
 
   async connect (uri: string): Promise<void> {
+    this.uri = uri
     this.client = await MongoClient.connect(uri)
   },
 
@@ -12,7 +14,7 @@ export const MongoHelper = {
     await this.client.close()
   },
 
-  getCollection (name: string): Collection {
+  async getCollection (name: string): Promise<Collection> {
     return this.client.db().collection(name)
   },
 
