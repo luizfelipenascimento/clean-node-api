@@ -8,7 +8,11 @@ export class RequiredFieldValidation implements Validation {
   }
 
   validate (input: any): Error {
-    if (!input[this.fieldName]) {
+    const inputFields = this.fieldName.split('.')
+    for (const inputField of inputFields) {
+      input = input[inputField]
+    }
+    if (!input) {
       return new MissingParamError(this.fieldName)
     }
 
