@@ -17,4 +17,10 @@ describe('RequiredFields Validation', () => {
     const error = sut.validate({ field: 'any_value' })
     expect(error).toBeFalsy()
   })
+
+  test('Should not returns an error if validation of nested value succeeds', async () => {
+    const sut = new RequiredFieldValidation('object.field')
+    const error = sut.validate({ object: { field: 'any_value' } })
+    expect(error).toBeFalsy()
+  })
 })
