@@ -20,7 +20,21 @@ describe('RequiredFields Validation', () => {
 
   test('Should not returns an error if validation of nested value succeeds', async () => {
     const sut = new RequiredFieldValidation('object.field')
-    const error = sut.validate({ object: { field: 'any_value' } })
+    const error = sut.validate({
+      object: {
+        field: 'any_value'
+      }
+    })
     expect(error).toBeFalsy()
+  })
+
+  test('Should returns a MissingParamError with correct nest field if validation fails', async () => {
+    const sut = new RequiredFieldValidation('object.field')
+    const error = sut.validate({
+      object: {
+        otherField: 'any_value'
+      }
+    })
+    expect(error).toEqual(new MissingParamError('object.field'))
   })
 })
