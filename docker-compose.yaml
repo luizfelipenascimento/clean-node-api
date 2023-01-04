@@ -16,6 +16,7 @@ services:
     command: npm run debug
     volumes:
       - './dist:/usr/src/clean-node-api/dist'
+      - './package.json:/urs/src/clean-node-api/package.json'
     ports:
       - "5050:5050"
       - "9222:9222"
