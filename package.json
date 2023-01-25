@@ -51,7 +51,7 @@
     "bcrypt": "^5.0.1",
     "express": "^4.17.3",
     "jsonwebtoken": "^9.0.0",
-    "mongodb": "^4.10.0",
+    "mongodb": "^4.13.0",
     "validator": "^13.7.0"
   },
   "engines": {
