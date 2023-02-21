@@ -33,12 +33,12 @@ describe('POST /surveys', () => {
     await MongoHelper.disconnect()
   })
 
-  test('Should returns 204 on add survey success', async () => {
+  test('Should returns 403 on add survey without accessToken', async () => {
     const response = await request(app)
       .post('/api/surveys')
       .send(makeFakeSurvey())
 
     console.log(response.body)
-    expect(response.statusCode).toBe(204)
+    expect(response.statusCode).toBe(403)
   })
 })
