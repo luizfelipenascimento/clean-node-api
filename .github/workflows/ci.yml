@@ -17,5 +17,5 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-      - run: eslint 'src/**'
+      - run: node_modules/.bin/eslint 'src/**'
       - run: npm run test:coveralls
