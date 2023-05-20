@@ -19,7 +19,7 @@ jobs:
         run: npm install
       - run: node_modules/.bin/eslint 'src/**'
       
-      name: Run coveralls
+      - name: Run coveralls
         env: # Or as an environment variable
-        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN_SECRET }}
+          OVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_REPO_TOKEN_SECRET }}
         run: npm run test:coveralls
