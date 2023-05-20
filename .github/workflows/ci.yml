@@ -18,4 +18,4 @@ jobs:
       - name: Install dependencies
         run: npm install
       - run: node_modules/.bin/eslint 'src/**'
-      - run: npm run test:coveralls
+      - run: npm run test:ci
