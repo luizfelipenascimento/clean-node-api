@@ -1,0 +1,21 @@
+name: ci
+on: 
+  push: 
+    branches: [master]
+  pull_request:
+    branches: [master]
+  
+jobs: 
+  build: 
+    runs-on: ubuntu-latest
+    steps: 
+      - uses: actions/checkout@v3
+      - name: Use node.js 14
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install dependencies
+      - run: npm install
+      - run: eslint 'src/**'
+      - run: npm run test:coveralls
